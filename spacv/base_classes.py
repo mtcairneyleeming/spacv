@@ -71,8 +71,8 @@ class BaseSpatialCV(BaseCrossValidator, metaclass=ABCMeta):
             return test_indices, train_exclude
         else:
             # Yield empty array because no training data removed in dead zone when buffer is zero
-            _ = np.empty((1,), dtype=int)
-            return test_indices, _
+            _ = np.empty([], dtype=int)
+            return test_indices, _[None]
         
     @abstractmethod
     def _iter_test_indices(self, XYs):
